@@ -4,9 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'jquery';
 import 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import Card from './Components/card';
+//import Card from './Components/card';
 import Navbar from './Components/navbar';
 import Form from './Components/article';
+import ProovedorForm from './Components/proovedor';
 import axios from 'axios';
 import Home from './Pages/Home'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -39,11 +40,14 @@ class App extends Component {
          <Navbar />
          <BrowserRouter >
           <Switch>
-            <Route exact path="/home">
+            <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/home/form">
+            <Route exact path="/articulo/nuevo">
               <Form />
+            </Route>
+            <Route exact path="/proovedor/nuevo">
+              <ProovedorForm />
             </Route>
           </Switch>
          </BrowserRouter>      

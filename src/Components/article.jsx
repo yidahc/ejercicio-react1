@@ -50,13 +50,16 @@ class Form extends Component  {
             <label for="exampleFormControlTextarea1">Descripcion</label>
             <textarea className="form-control" id="descripcion" rows="2" value = {this.state.descripcion} onChange = {this.handleInput}/>
         </div>
-        <div className="form-group">
-            <label for="exampleInputPassword1">Costo</label>
-            <input type="number" className="form-control form-control-sm" id="costo"  value = {this.state.costo} onChange = {this.handleInput}/>
-        </div>
-        <div className="form-group">
-            <label for="exampleInputPassword1">Precio</label>
-            <input type="number" className="form-control form-control-sm" id="precio"  value = {this.state.precio} onChange = {this.handleInput}/>
+        <div className="form-row">
+            <div className="col-5">
+            <input type="number" className="form-control" id="disponibilidad" aria-describedby="disponibilidad" value = {this.state.disponibilidad} onChange = {this.handleInput}/>
+            </div>
+            <div className="col">
+            <input type="number" className="form-control form-control-sm" id="costo" aria-describedby="costo" value = {this.state.costo} onChange = {this.handleInput}/>
+            </div>
+            <div className="col">
+            <input type="number" className="form-control form-control-sm" id="precio" aria-describedby="precio" value = {this.state.precio} onChange = {this.handleInput}/>
+            </div>
         </div>
         <div className="form-group">
             <label for="exampleFormControlFile1">Imagenes</label>
