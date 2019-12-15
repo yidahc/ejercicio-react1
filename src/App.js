@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
+import 'jquery';
+import 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-//import Card from './Components/card';
-//import Navbar from './Components/navbar';
-//import Form from './Components/form';
+import Card from './Components/card';
+import Navbar from './Components/navbar';
+import Form from './Components/form';
 import axios from 'axios';
+import Home from './Pages/Home'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
   constructor(props){
@@ -21,8 +23,9 @@ class App extends Component {
   componentDidMount(){
     axios.get('https://jsonplaceholder.typicode.com/users/1/albums')
     .then(albums => {
+      console.log(albums)
       this.setState({
-        albums: albums,
+        albums: albums.data,
         message: 'listo!'
       })
     })
@@ -31,11 +34,33 @@ class App extends Component {
   render(){  
   return (
     <div>
-     <h2>
-       { this.state.message }
-     </h2>
+     <div>
+       <div>
+         <Navbar />
+         <BrowserRouter >
+          <Switch>
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route path="/home/form">
+              <Form />
+            </Route>
+          </Switch>
+         </BrowserRouter>      
+      </div>
+     </div>
     </div>
   )};
 }
 
 export default App;
+
+
+/*
+ { this.state.albums.length > 0 ?
+          this.state.albums.map(album=>
+          <Card  title = {album.title} 
+                 userId = {album.userId} />)
+       : <h3>cargando</h3>
+      }
+*/
