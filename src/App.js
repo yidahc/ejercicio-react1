@@ -6,7 +6,7 @@ import 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Card from './Components/card';
 import Navbar from './Components/navbar';
-import Form from './Components/form';
+import Form from './Components/article';
 import axios from 'axios';
 import Home from './Pages/Home'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
